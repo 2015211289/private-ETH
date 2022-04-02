@@ -1,0 +1,4 @@
+# bootstrap node
+geth --datadir /root --networkid 991188 --nat extip:10.112.173.242 --http --http.api personal,eth,net,web3 --http.addr "0.0.0.0" --http.corsdomain '*'
+# miner node
+geth --datadir /root --networkid 991188 --syncmode full --bootnodes "enr:-KO4QP8E6cwyoI2yb59HFtklodFY36_e75WidaOjT1l168W0G-ouzrLt6mFg0Pe_5y78VUkB2x3lLhQZEDSNFL4A5xGGAX_o6RTTg2V0aMfGhMGBRa2AgmlkgnY0gmlwhApwrfKJc2VjcDI1NmsxoQJV-8ev6tdbVLVUfy-R4FJ-W-pFtqNVnFnU8NJVRlCLiYRzbmFwwIN0Y3CCdl-DdWRwgnZf" --http --http.api personal,eth,net,web3 --http.addr "0.0.0.0" --http.corsdomain '*' --miner.etherbase=0x8E78d2e79169AAdA7ED7C68C75efbb11b18a5778

@@ -1,0 +1,1 @@
+geth init --datadir /root genesis.json
