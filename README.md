@@ -33,3 +33,17 @@
 4. 执行修改后的命令，开始运行miner节点
 5. 通过`geth attach /root/geth.ipc`进入console，可以运行各种命令
 6. 可以通过该节点主机的8545端口访问http服务
+
+## TODO
+1. - [x] 容器时间同步
+   
+由于host休眠，Docker的时间同步机制导致偏移，需要重启容器或者执行`ntpd -d -q -n -p ntp3.aliyun.com`同步时间（容器系统为Alpine Linux,
+https://wiki.alpinelinux.org/wiki/Alpine_Linux:FAQ#Using_a_cron_job_to_keep_the_time_in_sync）
+
+2. - [x] 监控节点的服务 
+
+InfluxDB + Grafana
+   
+3. - [x] 转账
+
+可行
