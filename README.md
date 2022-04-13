@@ -25,10 +25,11 @@
 1. 修改`geth.sh`文件内容，其中`--network`必须和`genesis.json`中的chainId一致
 2. `--nat extip:`之后为部署主机的ip
 3. 执行修改后的命令，开始运行bootstrap节点
-4. 重启开启一个终端，执行`geth attach /root/geth.ipc --exec admin.nodeInfo.enr`获取enr，记录该字符串
+4. 重启开启一个终端，执行`geth attach /root/geth.ipc --exec admin.nodeInfo.enode`获取enode，记录该字符串
+5. 根据教程配置监控<https://ethereum.org/en/developers/tutorials/monitoring-geth-with-influxdb-and-grafana/>
 ### 运行miner节点
 1. 与bootstrap节点一致，首先容器，区块链账户和创世纪块。注意创世纪块必须一致。
-2. `--bootnodes `后改为bootstrap节点的enr
+2. 将`static-nodes.json`复制到`/root`目录下，并将其中字符串修改为boostrap node的enode。
 3. `--miner.etherbase=`后改为第一步的区块链账户
 4. 执行修改后的命令，开始运行miner节点
 5. 通过`geth attach /root/geth.ipc`进入console，可以运行各种命令
@@ -37,13 +38,8 @@
 ## TODO
 1. - [x] 容器时间同步
    
-由于host休眠，Docker的时间同步机制导致偏移，需要重启容器或者执行`ntpd -d -q -n -p ntp3.aliyun.com`同步时间（容器系统为Alpine Linux,
-https://wiki.alpinelinux.org/wiki/Alpine_Linux:FAQ#Using_a_cron_job_to_keep_the_time_in_sync）
+由于host休眠，Docker的时间同步机制导致偏移，目前已经在Docker Destop for Mac修复。<https://www.docker.com/blog/addressing-time-drift-in-docker-desktop-for-mac/>
 
 2. - [x] 监控节点的服务 
 
 InfluxDB + Grafana
-   
-3. - [x] 转账
-
-可行

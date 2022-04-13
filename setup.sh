@@ -1,1 +1,1 @@
-docker run -v /Users/xieyu/Documents/Blockchain/root:/root/ -dt --entrypoint /bin/sh -p 8545:8545 -p 30303:30303 -p 30303:30303/udp ethereum/client-go
+docker run -v /Users/xieyu/Documents/Blockchain/root:/root/ -dt --entrypoint /bin/sh -p 8545:8545 -p 30303:30303 -p 30303:30303/udp --privileged ethereum/client-go
